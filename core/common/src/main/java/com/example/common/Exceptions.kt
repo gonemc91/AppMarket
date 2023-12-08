@@ -40,7 +40,7 @@ class StorageException(cause: Exception) : AppException(cause = cause)
  */
 
 class UserFriendlyException(
-    val userFriendlyException: String,
+    val userFriendlyMessage: String,
     cause: Exception,
 ) : AppException(cause.message ?: "", cause)
 

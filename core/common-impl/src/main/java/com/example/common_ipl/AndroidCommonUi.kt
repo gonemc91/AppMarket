@@ -93,7 +93,7 @@ class AndroidCommonUi(
 
 
 
-    data class DialogRecord(
+    private class DialogRecord(
         val config: AlertDialogConfig,
         val continuation: CancellableContinuation<Boolean>,
         var dialog: Dialog? = null

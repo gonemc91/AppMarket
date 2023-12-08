@@ -3,14 +3,17 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
+
 }
 
 android {
-    namespace = "com.example.common_ipl"
-    compileSdk = 34
+    namespace = "com.example.data"
+    compileSdk = VersionSDK.compileSdk
 
     defaultConfig {
-        minSdk = 24
+        minSdk = VersionSDK.minSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -34,8 +37,20 @@ android {
     }
 }
 
-dependencies {
-    //TODO(implementation Libs.Android.FragmentKtx)
-    api(project(":core:common"))
-    implementation("androidx.fragment:fragment-ktx:1.6.2")
+ dependencies {
+     implementation(Dependencies.Android.coreKtx)
+     implementation(Dependencies.Stuff.faker)
+     implementation(Dependencies.Google.hilt)
+     implementation(Dependencies.Stuff.javaxInject)
+     kapt(Dependencies.Google.hiltCompiler)
+
+    implementation(project(Modules.Core.common))
 }
+
+
+
+
+kapt {
+    correctErrorTypes = true
+}
+
