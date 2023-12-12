@@ -41,12 +41,20 @@ android {
 dependencies {
     implementation(Dependencies.Android.appCompat)
     implementation(Dependencies.Android.coreKtx)
-    implementation(Dependencies.Stuff.faker)
+    implementation(Dependencies.Android.constraintLayout)
+    implementation(Dependencies.Android.navigationFragments)
+
+    implementation(Dependencies.Google.material)
+
     implementation(Dependencies.Google.hilt)
-    implementation(Dependencies.Stuff.javaxInject)
     kapt(Dependencies.Google.hiltCompiler)
 
-    project(Modules.Core.common)
+    implementation(project(Modules.Core.wiring))
+    implementation(project(Modules.Core.commonImpl))
+    implementation(project(Modules.Core.presentation))
+    implementation(project(Modules.Navigation.navigation))
+
+    implementation(project(Modules.Features.signIn))
 }
 
 kapt {

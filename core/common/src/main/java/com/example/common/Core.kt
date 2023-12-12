@@ -71,5 +71,11 @@ object Core {
      */
     val debouncePeriodMillis: Long get() = coreProvider.debouncePeriodMillis
 
+    /**
+     * Init this core.
+     */
+    fun init(coreProvider: CoreProvider) {
+        this.coreProvider = coreProvider
+    }
 
 }
