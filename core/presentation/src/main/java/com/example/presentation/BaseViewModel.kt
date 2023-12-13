@@ -19,6 +19,7 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.Flow
@@ -30,6 +31,7 @@ import kotlinx.coroutines.launch
 /**
  * Base class for all view models.
  */
+@OptIn(FlowPreview::class)
 open class BaseViewModel: ViewModel() {
 
     /**
@@ -69,7 +71,7 @@ open class BaseViewModel: ViewModel() {
 
     init {
         viewModelScope.launch {
-            debounceFlow.sample(Core.debouncePeriodMillis).collect{
+            debounceFlow.sample(Core.debouncePeriodMillis).collect {
                 it()
             }
         }

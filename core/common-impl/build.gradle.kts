@@ -35,7 +35,6 @@ android {
 }
 
 dependencies {
-    //TODO(implementation Libs.Android.FragmentKtx)
     api(project(Modules.Core.common))
     implementation(Dependencies.Android.fragmentKtx)
 }

@@ -62,7 +62,7 @@ class DefaultScreenCommunication: ScreenCommunication, ActivityRequired {
     override fun onStopped() {
     }
 
-    override fun onDestroy() {
+    override fun onDestroyed() {
         if (this.activity?.isFinishing == true){
             created = false
             pendingResult.clear()

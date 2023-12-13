@@ -1,4 +1,10 @@
 package com.example.navigation.presentation
 
-class MainRouter {
+interface MainRouter  {
+    /**
+     * Launch Cart screen.
+     */
+
+    fun launchCart()
+
 }

@@ -4,11 +4,11 @@ interface AuthTokenRepository {
     /**
      * Save the auth token.
      */
-    suspend fun setToken(token: String)
+    suspend fun setToken(token: String?)
 
     /**
      * Get the auth token of the current logged-in user.
      */
 
-    suspend fun getToken(): String
+    suspend fun getToken(): String?
 }

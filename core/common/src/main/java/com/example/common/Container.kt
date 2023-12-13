@@ -1,7 +1,6 @@
 package com.example.common
 
 import kotlinx.coroutines.runBlocking
-import java.lang.Exception
 
 /**
  * Represents the current status of async fetch/operation
@@ -16,7 +15,7 @@ sealed class Container<out T> {
     /**
      * Convert the container type another type.
      */
-    fun <R> map(mapper: ((T) -> R)): Container<R> {
+    fun <R> map(mapper: ((T) -> R)? = null): Container<R> {
         return runBlocking {
             val suspendMapper: (suspend (T) -> R)? = if (mapper == null) {
                 null

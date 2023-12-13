@@ -40,17 +40,19 @@ android {
  dependencies {
      implementation(Dependencies.Android.coreKtx)
      implementation(Dependencies.Stuff.faker)
+
      implementation(Dependencies.Google.hilt)
-     implementation(Dependencies.Stuff.javaxInject)
      kapt(Dependencies.Google.hiltCompiler)
+
 
     implementation(project(Modules.Core.common))
 }
 
 
-
-
 kapt {
     correctErrorTypes = true
+}
+hilt {
+    enableAggregatingTask = true
 }
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-
+    tools:context="com.example.sign_in.presentation.signin.SignInFragment"
     >
 
     <ScrollView
@@ -58,7 +58,7 @@
                     android:lines="1"
                     android:inputType="textPassword"
                     android:imeOptions="actionDone"
-                    android:text="123456"/>
+                    tools:text="123456"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

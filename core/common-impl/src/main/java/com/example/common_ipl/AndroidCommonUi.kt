@@ -58,7 +58,7 @@ class AndroidCommonUi(
         dialogRecord.forEach{it.dialog?.dismiss()}
     }
 
-    override fun onDestroy() {
+    override fun onDestroyed() {
         if (this.currentActivity?.isFinishing == true){
             this.dialogRecord.clear()
         }

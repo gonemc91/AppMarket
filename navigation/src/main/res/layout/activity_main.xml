@@ -15,7 +15,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar">
 
         <FrameLayout
-            android:id="@+id/cartContainer"
+            android:id="@+id/cartIconContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

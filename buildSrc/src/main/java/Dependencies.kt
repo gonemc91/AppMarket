@@ -1,6 +1,6 @@
 object Dependencies {
 
-    const val hiltVersion = "2.44"
+    const val hiltVersion = "2.49"
     const val navVersion = "2.4.0"
 
     object Android {

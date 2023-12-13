@@ -3,6 +3,7 @@ package com.example.navigation.di
 import com.example.common.AppRestarter
 import com.example.common_ipl.ActivityRequired
 import com.example.navigation.GlobalNavComponentRouter
+import com.example.navigation.MainAppRestarter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +17,7 @@ class NavigationModule {
 
     @Provides
     fun providesAppRestarter(
-        appRestarter: AppRestarter
+        appRestarter: MainAppRestarter
     ): AppRestarter{
         return appRestarter
     }

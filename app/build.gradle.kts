@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.example.appmarket"
-    compileSdk = VersionSDK.compileSdk
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.appmarket"
@@ -49,14 +49,18 @@ dependencies {
     implementation(Dependencies.Google.hilt)
     kapt(Dependencies.Google.hiltCompiler)
 
-    implementation(project(Modules.Core.wiring))
     implementation(project(Modules.Core.commonImpl))
     implementation(project(Modules.Core.presentation))
     implementation(project(Modules.Navigation.navigation))
+    implementation(project(Modules.Data.data))
 
     implementation(project(Modules.Features.signIn))
+
 }
 
 kapt {
     correctErrorTypes = true
+}
+hilt {
+    enableAggregatingTask = true
 }

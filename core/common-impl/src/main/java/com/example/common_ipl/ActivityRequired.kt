@@ -16,6 +16,6 @@ interface ActivityRequired {
 
     fun onStopped()
 
-    fun onDestroy()
+    fun onDestroyed()
 
 }

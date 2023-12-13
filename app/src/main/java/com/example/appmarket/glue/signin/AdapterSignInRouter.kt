@@ -1,5 +1,6 @@
 package com.example.appmarket.glue.signin
 
+import com.example.navigation.GlobalNavComponentRouter
 import com.example.sign_in.presentation.SignInRouter
 import javax.inject.Inject
 
@@ -8,9 +9,10 @@ class AdapterSignInRouter @Inject constructor(
 ) : SignInRouter{
 
     override fun launchSignUp(email: String) {
-        TODO("Not yet implemented")
+        TODO()
     }
 
     override fun launchMain() {
+        TODO()
     }
 }
