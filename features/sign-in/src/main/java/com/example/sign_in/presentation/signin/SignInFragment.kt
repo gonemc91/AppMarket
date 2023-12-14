@@ -23,7 +23,8 @@ class SignInFragment: Fragment(R.layout.fragment_sign_in) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding){
-
+            setupListeners()
+            observeScreenState()
         }
     }
 

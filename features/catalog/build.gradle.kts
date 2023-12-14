@@ -1,23 +1,21 @@
+
+
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
-
 }
 
 android {
-    namespace = "com.example.appmarket"
-    compileSdk = 34
+    namespace = "com.example.catalog"
+    compileSdk = VersionSDK.compileSdk
 
     defaultConfig {
-        applicationId = "com.example.appmarket"
         minSdk = VersionSDK.minSdk
-        targetSdk = VersionSDK.targetSdk
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -39,30 +37,21 @@ android {
 }
 
 dependencies {
-    implementation(Dependencies.Android.appCompat)
     implementation(Dependencies.Android.coreKtx)
-    implementation(Dependencies.Android.constraintLayout)
-    implementation(Dependencies.Android.navigationFragments)
+    implementation(Dependencies.Android.appCompat)
+    implementation(Dependencies.Android.fragmentKtx)
+    implementation(Dependencies.Android.lifecycleViewModelKtx)
 
     implementation(Dependencies.Google.material)
 
     implementation(Dependencies.Google.hilt)
     kapt(Dependencies.Google.hiltCompiler)
 
-    implementation(project(Modules.Core.commonImpl))
     implementation(project(Modules.Core.presentation))
-    implementation(project(Modules.Navigation.navigation))
-    implementation(project(Modules.Data.data))
-
-    implementation(project(Modules.Features.signIn))
-    implementation(project(Modules.Features.signUp))
-    implementation(project(Modules.Features.catalog))
-
+    implementation(project(Modules.Core.common))
 }
+
 
 kapt {
     correctErrorTypes = true
-}
-hilt {
-    enableAggregatingTask = true
 }

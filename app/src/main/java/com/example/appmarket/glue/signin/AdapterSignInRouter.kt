@@ -1,7 +1,9 @@
 package com.example.appmarket.glue.signin
 
+import com.example.appmarket.R
 import com.example.navigation.GlobalNavComponentRouter
 import com.example.sign_in.presentation.SignInRouter
+import com.example.sign_up.presentation.signup.SignUpFragment
 import javax.inject.Inject
 
 class AdapterSignInRouter @Inject constructor(
@@ -9,10 +11,11 @@ class AdapterSignInRouter @Inject constructor(
 ) : SignInRouter{
 
     override fun launchSignUp(email: String) {
-        TODO()
+        val screen = SignUpFragment.Screen(email)
+        globalNavComponentRouter.launch(R.id.signUpFragment, screen)
     }
 
     override fun launchMain() {
-        TODO()
+        globalNavComponentRouter.startTabs()
     }
 }

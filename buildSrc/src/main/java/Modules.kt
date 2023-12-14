@@ -14,6 +14,8 @@ object Modules {
 
     object Features{
         const val signIn = ":features:sign-in"
+        const val signUp = ":features:sign-up"
+        const val catalog = ":features:catalog"
     }
 
     object Data{

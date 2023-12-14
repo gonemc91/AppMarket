@@ -5,7 +5,7 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="hint">#FF797979</color>
+    <color name="hint">#585858</color>
     <color name="frame_stroke">#9e9e9e</color>
     <color name="background">#eeeeee</color>
     <color name="discount_text">#008800</color>
