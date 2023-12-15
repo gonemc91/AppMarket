@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:padding="16dp"
-            tools:context = "com.example.catalog.ProductDetailsFragment"
+            tools:context = "com.example.catalog.presentation.details.ProductDetailsFragment"
             >
 
             <ImageView

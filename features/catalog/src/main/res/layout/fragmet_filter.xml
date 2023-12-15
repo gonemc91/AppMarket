@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.catalog.CatalogFilterFragment">
+    tools:context="com.example.catalog.presentation.filter.CatalogFilterFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/filterRecyclerView"

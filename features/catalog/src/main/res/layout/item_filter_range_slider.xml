@@ -37,6 +37,6 @@
         android:minWidth="60dp"
         android:gravity="end"
         android:textColor="@color/black"
-        tools:text="88 $"
+        tools:text="88 $"/>
 
 </LinearLayout>

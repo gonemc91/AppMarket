@@ -34,6 +34,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -46,6 +50,8 @@ dependencies {
 
     implementation(Dependencies.Google.hilt)
     kapt(Dependencies.Google.hiltCompiler)
+
+    implementation(Dependencies.Stuff.ElementAdapter)
 
     implementation(project(Modules.Core.presentation))
     implementation(project(Modules.Core.common))
