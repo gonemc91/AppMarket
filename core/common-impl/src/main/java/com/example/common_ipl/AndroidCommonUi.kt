@@ -26,7 +26,7 @@ class AndroidCommonUi(
 
     private var currentActivity: FragmentActivity? = null
     private var isStarted = false
-    private val dialogRecord = mutableListOf<DialogRecord>()
+    private val dialogRecords = mutableListOf<DialogRecord>()
 
 
     override fun toast(message: String) {
@@ -35,13 +35,13 @@ class AndroidCommonUi(
 
     override suspend fun alertDialog(config: AlertDialogConfig): Boolean = suspendCancellableCoroutine {
         val record = DialogRecord(config, it)
-        dialogRecord.add(record)
+        dialogRecords.add(record)
         if (isStarted) {
             startDialog(record)
         }
         it.invokeOnCancellation {
             record.dialog?.dismiss()
-            dialogRecord.remove(record)
+            dialogRecords.remove(record)
         }
     }
     override fun onCreated(activity: FragmentActivity) {
@@ -50,17 +50,17 @@ class AndroidCommonUi(
 
     override fun onStarted() {
         isStarted = true
-        dialogRecord.forEach{startDialog(it)}
+        dialogRecords.forEach{startDialog(it)}
     }
 
     override fun onStopped() {
         isStarted = false
-        dialogRecord.forEach{it.dialog?.dismiss()}
+        dialogRecords.forEach{it.dialog?.dismiss()}
     }
 
     override fun onDestroyed() {
         if (this.currentActivity?.isFinishing == true){
-            this.dialogRecord.clear()
+            this.dialogRecords.clear()
         }
         this.currentActivity = null
     }
@@ -74,16 +74,16 @@ class AndroidCommonUi(
             .setCancelable(true)
             .setOnCancelListener{
                 record.continuation.resume(false)
-                dialogRecord.remove(record)
+                dialogRecords.remove(record)
             }
             .setPositiveButton(record.config.positiveButton){_,_->
-                record.continuation.resume(false)
-                dialogRecord.remove(record)
+                record.continuation.resume(true)
+                dialogRecords.remove(record)
             }
         if(record.config.negativeButton != null){
             builder.setNegativeButton(record.config.negativeButton){_,_->
                 record.continuation.resume(false)
-                dialogRecord.remove(record)
+                dialogRecords.remove(record)
             }
         }
         val dialog = builder.create()

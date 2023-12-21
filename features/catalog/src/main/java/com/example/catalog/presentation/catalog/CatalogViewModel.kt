@@ -57,7 +57,7 @@ class CatalogViewModel @Inject constructor(
 
     fun addToCart(productWithCartInfo: ProductWithCartInfo) = debounce {
         viewModelScope.launch {
-
+            TODO()
         }
     }
 

@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.example.appmarket"
-    compileSdk = 34
+    compileSdk = VersionSDK.compileSdk
 
     defaultConfig {
         applicationId = "com.example.appmarket"

@@ -55,6 +55,7 @@
         tools:text="This is a product description very long text example"
         app:layout_constraintStart_toStartOf="@id/nameTextView"
         app:layout_constraintEnd_toEndOf="@id/nameTextView"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/categoryHintTextView"
         />
 

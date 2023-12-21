@@ -12,17 +12,20 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/primary_two"
+        >
+
         <LinearLayout
             android:id="@+id/sortAndFilterButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:padding="6dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:padding="6dp">
 
             <ImageView
                 android:layout_width="28dp"
@@ -40,13 +43,13 @@
 
         </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/productsRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="6dp"
-        tools:listitem="@layout/item_product"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="6dp"
+            tools:listitem="@layout/item_product" />
 
-</LinearLayout>
+    </LinearLayout>
 
 </com.example.presentation.views.ResultView>

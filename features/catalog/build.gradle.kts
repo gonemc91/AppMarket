@@ -55,6 +55,7 @@ dependencies {
 
     implementation(project(Modules.Core.presentation))
     implementation(project(Modules.Core.common))
+    implementation(project(Modules.Core.theme))
 }
 
 

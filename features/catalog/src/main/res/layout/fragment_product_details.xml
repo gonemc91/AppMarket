@@ -21,11 +21,13 @@
 
             <ImageView
                 android:id="@+id/productImageView"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="12dp"
-                android:background="#dedede"
-                tools:ignore="ContentDescription">
+                android:scaleType="centerCrop"
+                tools:ignore="ContentDescription"
+                tools:background="@drawable/ic_product_test"
+                >
             </ImageView>
 
             <TextView
@@ -33,7 +35,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:ellipsize="end"

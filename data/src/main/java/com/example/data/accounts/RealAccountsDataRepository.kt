@@ -19,6 +19,7 @@ class RealAccountsDataRepository @Inject constructor(
     coroutineScope: CoroutineScope,
     lazyFlowSubjectFactory: LazyFlowSubjectFactory
 ) : AccountsDataRepository {
+
     private val accountLazyFlowSubject = lazyFlowSubjectFactory.create {
         accountsDataSource.getAccount()
     }

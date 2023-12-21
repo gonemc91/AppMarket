@@ -21,7 +21,7 @@ class DefaultDestinationProvider @Inject constructor(
     override fun provideMainTabs(): List<NavTab> {
         return listOf(
             NavTab(
-                destinationId = R.id.signInFragment,
+                destinationId = R.id.catalogFragment,
                 title = context.getString(R.string.tab_catalog),
                 iconRes = R.drawable.ic_catalog,
             ),
@@ -39,7 +39,7 @@ class DefaultDestinationProvider @Inject constructor(
     }
 
     override fun provideTabsDestinationId(): Int {
-        TODO("Not yet implemented")
+        return R.id.tabsFragment
     }
 
     override fun providerCartDestinationId(): Int {

@@ -10,5 +10,6 @@ interface Price : Serializable {
     operator fun plus(price: Price):Price
     operator fun times(proportion: Double):Price
     operator fun compareTo(price: Price):Int
+
     operator fun div(price: Price):Double
 }

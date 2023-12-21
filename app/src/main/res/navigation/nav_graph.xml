@@ -10,9 +10,6 @@
         android:name="com.example.sign_in.presentation.signin.SignInFragment"
         android:label="@string/title_sign_in"
         tools:layout="@layout/fragment_sign_in" >
-        <action
-            android:id="@+id/action_signInFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
     </fragment>
 
     <fragment
@@ -20,6 +17,23 @@
         android:name="com.example.sign_up.presentation.signup.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
-
+    <fragment
+        android:id="@+id/catalogFragment"
+        android:name="com.example.catalog.presentation.catalog.CatalogFragment"
+        android:label="fragment_catalog"
+        tools:layout="@layout/fragment_catalog" />
+    <fragment
+        android:id="@+id/tabsFragment"
+        android:name="com.example.navigation.presentation.TabsFragment"
+        android:label="TabsFragment" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.catalog.presentation.details.ProductDetailsFragment"
+        android:label="ProductDetailsFragment" />
+    <fragment
+        android:id="@+id/catalogFilterFragment"
+        android:name="com.example.catalog.presentation.filter.CatalogFilterFragment"
+        android:label="fragmet_filter"
+        tools:layout="@layout/fragmet_filter" />
 
 </navigation>

@@ -1,13 +1,15 @@
 package com.example.data
 
 import com.example.common.Container
+import com.example.data.cart.entities.CartItemDataEntity
+import kotlinx.coroutines.flow.Flow
 
 interface CartDataRepository {
 
     /**
      * @return infinite flow, always success; errors are delivered to [Container]
      */
-    //fun getCart(): Flow<Container<List<CartItemDataEntity>>>
+    fun getCart(): Flow<Container<List<CartItemDataEntity>>>
 
     /**
      * Add a new product to the cart.
@@ -19,7 +21,7 @@ interface CartDataRepository {
      * Get cart item by its ID.
      * @throws NotFoundException
      */
-    //suspend fun getCartItemById(id: Long): CartItemDataEntity
+    suspend fun getCartItemById(id: Long): CartItemDataEntity
 
     /**
      * Delete the specified cart items.
