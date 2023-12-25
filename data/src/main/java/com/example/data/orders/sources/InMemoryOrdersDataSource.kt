@@ -63,7 +63,7 @@ class InMemoryOrdersDataSource @Inject constructor(
                 uuid = UUID.randomUUID().toString().substring(0,18),
                 recipient = RecipientDataEntity(
                     firstName = faker.name().firstName(),
-                    secondName = faker.name().lastName(),
+                    lastName = faker.name().lastName(),
                     address = faker.address().fullAddress()
                 ),
                 status = OrderStatusDataValue.values()[it % OrderStatusDataValue.values().size],

@@ -6,5 +6,5 @@ import androidx.recyclerview.widget.RecyclerView
 
 fun RecyclerView.setupSimpleList(){
     layoutManager = LinearLayoutManager(context)
-    (itemAnimator as? DefaultItemAnimator)?.supportsChangeAnimations = false
+   (itemAnimator as? DefaultItemAnimator)?.supportsChangeAnimations = false
 }

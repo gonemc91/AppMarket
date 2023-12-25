@@ -22,8 +22,11 @@ import com.example.orders.presentation.orders.entites.UiOrder
 import com.example.presentation.viewBinding
 import com.example.presentation.views.observe
 import com.example.presentation.views.setupSimpleList
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+
+@AndroidEntryPoint
 class OrdersListFragment @Inject constructor()  : Fragment(R.layout.fragment_order_list)  {
 
     private val viewModel by viewModels<OrdersListViewModel>()

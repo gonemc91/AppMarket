@@ -62,7 +62,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/signInButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,9 +72,11 @@
                 app:layout_constraintBottom_toTopOf="@id/signUpButton"
                 android:layout_marginTop="12dp"
                 android:text="@string/signin_action_sign_in"
-                style="@style/GlobalTextInputStyle.Big"/>
+                style="@style/GlobalTextInputStyle.Big"
+                app:cornerRadius="10dp"
+                />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/signUpButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -83,7 +85,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:text="@string/signin_action_create_account"
-                style="@style/GlobalTextInputStyle.Secondary.Big"/>
+                style="@style/GlobalTextInputStyle.Secondary.Big"
+                app:cornerRadius="10dp"
+                />
 
             <ProgressBar
                 android:id="@+id/progressBar"

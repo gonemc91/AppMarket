@@ -57,6 +57,9 @@ dependencies {
     implementation(project(Modules.Features.signIn))
     implementation(project(Modules.Features.signUp))
     implementation(project(Modules.Features.catalog))
+    implementation(project(Modules.Features.orders))
+    implementation(project(Modules.Features.cart))
+
 
 }
 

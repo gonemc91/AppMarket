@@ -7,6 +7,7 @@ import com.example.data.product.entities.SortByDataValue
 import com.example.data.product.entities.SortOrderDataValue
 import com.github.javafaker.Faker
 import kotlinx.coroutines.runBlocking
+import java.util.Locale
 import java.util.Random
 import javax.inject.Inject
 
@@ -26,7 +27,7 @@ class InMemoryProductDataSource @Inject constructor (
     )
 
 
-    private val faker = Faker.instance(Random(7))
+    private val faker = Faker.instance(Locale("en-GB"), Random(10))
 
     private val products = generateRandomProducts()
 
@@ -89,12 +90,13 @@ class InMemoryProductDataSource @Inject constructor (
         var idSequence: Long = 0
         return categories.flatMap { category ->
             List(random.nextInt(10, 30)){
+                val generateDesc = faker.lorem().paragraph(8)
                 ProductDataEntity(
                     id = ++idSequence,
                     name = "${faker.food().dish()} ${faker.food().ingredient()}",
                     category = category,
-                    shortDescription = faker.lorem().paragraph(2),
-                    description = faker.lorem().paragraph(8),
+                    shortDescription = generateDesc.substring(0,100),
+                    description = generateDesc,
                     imageUrl = availableImages[idSequence.toInt() % availableImages.size],
                     quantityAvailable = random.nextInt(10, 60),
                     priceUsdCents = random.nextInt(15, 100) * 100 + 99

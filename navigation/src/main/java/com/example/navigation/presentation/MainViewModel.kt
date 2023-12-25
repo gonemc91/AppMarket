@@ -1,6 +1,7 @@
 package com.example.navigation.presentation
 
 import com.example.common.Container
+import com.example.navigation.domain.GetCartItemsCountUseCase
 import com.example.navigation.domain.GetCurrentUsernameUseCase
 import com.example.presentation.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val getCurrentUsernameUseCase: GetCurrentUsernameUseCase,
-    //private val getCartItemsCountUseCase: GetCartItemsCountUseCase,
+    private val getCartItemsCountUseCase: GetCartItemsCountUseCase,
     private val router: MainRouter,
 ) : BaseViewModel() {
 
@@ -21,7 +22,7 @@ class MainViewModel @Inject constructor(
 
     init {
         observeUsername()
-        //observeCart()
+        observeCart()
     }
 
     fun launchCart() = debounce {
@@ -40,7 +41,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-   /* private fun observeCart(){
+    private fun observeCart(){
         viewModelScope.launch {
             getCartItemsCountUseCase.getCartItemCount().collectLatest {container->
                 if (container is Container.Success){
@@ -59,7 +60,7 @@ class MainViewModel @Inject constructor(
             }
         }
     }
-*/
+
 
 
     class CartState(

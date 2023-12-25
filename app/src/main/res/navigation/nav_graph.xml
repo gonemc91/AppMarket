@@ -35,5 +35,24 @@
         android:name="com.example.catalog.presentation.filter.CatalogFilterFragment"
         android:label="fragmet_filter"
         tools:layout="@layout/fragmet_filter" />
+    <fragment
+        android:id="@+id/ordersListFragment"
+        android:name="com.example.orders.presentation.orders.OrdersListFragment"
+        android:label="fragment_order_list"
+        tools:layout="@layout/fragment_order_list" />
+    <fragment
+        android:id="@+id/createOrdersFragment"
+        android:name="com.example.orders.presentation.create.CreateOrdersFragment"
+        android:label="CreateOrdersFragment" />
+    <fragment
+        android:id="@+id/cartListFragment"
+        android:name="com.example.cart.presentation.cartlist.CartListFragment"
+        android:label="fragment_cart_list"
+        tools:layout="@layout/fragment_cart_list" />
+    <dialog
+        android:id="@+id/editQuantityDialogFragment"
+        android:name="com.example.cart.presentation.quantity.EditQuantityDialogFragment"
+        android:label="dialog_quantity"
+        tools:layout="@layout/dialog_quantity" />
 
 </navigation>

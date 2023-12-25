@@ -2,6 +2,6 @@ package com.example.data.orders.entities
 
 data class RecipientDataEntity(
     val firstName: String,
-    val secondName: String,
+    val lastName: String,
     val address: String,
 )

@@ -1,6 +1,6 @@
 package com.example.catalog.presentation.catalog
 
-import android.graphics.Color
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
@@ -58,6 +58,8 @@ class CatalogFragment : Fragment(R.layout.fragment_catalog){
     }
 
 
+
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun createAdapter() = simpleAdapter<ProductWithCartInfo, ItemProductBinding> {
         areItemsSame = {oldItem, newItem ->  oldItem.product.id == newItem.product.id}
         areContentsSame = {oldItem, newItem -> oldItem == newItem }
@@ -70,11 +72,11 @@ class CatalogFragment : Fragment(R.layout.fragment_catalog){
             originPriceTextView.text = product.price.text
             if (product.priceWithDiscount == null){
                 priceWithDiscountTextView.isVisible = false
-                originPriceTextView.setBackgroundColor(Color.TRANSPARENT)
+                originPriceTextView.foreground = null
             }else{
                 priceWithDiscountTextView.isVisible = true
                 priceWithDiscountTextView.text = product.priceWithDiscount.text
-                originPriceTextView.setBackgroundResource(com.example.theme.R.drawable.core_theme_diagonal_line)
+                originPriceTextView.foreground = context?.getDrawable(com.example.theme.R.drawable.core_theme_diagonal_line)
             }
             addToCartImageView.isEnabled = !productWithCartInfo.isInCart
             addToCartImageView.setImageResource(

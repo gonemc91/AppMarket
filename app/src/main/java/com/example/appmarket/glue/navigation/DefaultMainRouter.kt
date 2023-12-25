@@ -1,5 +1,6 @@
 package com.example.appmarket.glue.navigation
 
+import com.example.appmarket.R
 import com.example.navigation.GlobalNavComponentRouter
 import com.example.navigation.presentation.MainRouter
 import javax.inject.Inject
@@ -9,6 +10,6 @@ class DefaultMainRouter @Inject constructor(
 ): MainRouter {
 
     override fun launchCart() {
-        TODO()
+        navComponentRouter.launch(R.id.cartListFragment)
     }
 }

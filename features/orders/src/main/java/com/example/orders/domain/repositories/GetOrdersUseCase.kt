@@ -5,7 +5,7 @@ import com.example.orders.domain.entities.Order
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetOrderUseCase @Inject constructor(
+class GetOrdersUseCase @Inject constructor(
     private val ordersRepository: OrdersRepository,
 ) {
     /**

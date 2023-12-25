@@ -4,7 +4,7 @@ import com.example.common.Container
 import com.example.common.entities.OnChange
 import com.example.orders.domain.CancelOrderUseCase
 import com.example.orders.domain.entities.Order
-import com.example.orders.domain.repositories.GetOrderUseCase
+import com.example.orders.domain.repositories.GetOrdersUseCase
 import com.example.orders.presentation.orders.entites.UiOrder
 import com.example.presentation.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,25 +13,24 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
 
+@HiltViewModel
 class OrdersListViewModel @Inject constructor(
-    private val getOrderUseCase: GetOrderUseCase,
+    private val getOrdersUseCase: GetOrdersUseCase,
     private val cancelOrderUseCase: CancelOrderUseCase,
-): BaseViewModel() {
+) : BaseViewModel() {
 
     private val cancellationUuidsFlow = MutableStateFlow(OnChange(mutableSetOf<String>()))
 
     val stateLiveValue = combine(
-        getOrderUseCase.getOrders(),
+        getOrdersUseCase.getOrders(),
         cancellationUuidsFlow,
         ::merge
     ).toLiveValue()
 
     fun reload() = debounce {
-        getOrderUseCase.reload()
+        getOrdersUseCase.reload()
     }
-
 
     fun cancelOrder(order: UiOrder) = debounce {
         viewModelScope.launch {
@@ -40,22 +39,20 @@ class OrdersListViewModel @Inject constructor(
             cancellationUuidsFlow.value = OnChange(cancellationIds)
             try {
                 cancelOrderUseCase.cancelOrder(order.origin)
-                cancellationIds.remove(order.uuid)// change cancellation state bun not update
-            }catch (e: Exception){
-                cancellationIds.remove(order.uuid) //change cancellation state...
-                cancellationUuidsFlow.value = OnChange(cancellationIds) //..and update
+                cancellationIds.remove(order.uuid) // change cancellation state but do not update
+            } catch (e: Exception) {
+                cancellationIds.remove(order.uuid) // change cancellation state...
+                cancellationUuidsFlow.value = OnChange(cancellationIds) // ... and update
                 throw e
             }
         }
     }
 
-
-
     private fun merge(
-        orderContainer: Container<List<Order>>,
+        ordersContainer: Container<List<Order>>,
         cancellations: OnChange<MutableSet<String>>
-    ): Container<State>{
-        return orderContainer.map { list ->
+    ): Container<State> {
+        return ordersContainer.map { list ->
             State(
                 orders = list.map {
                     UiOrder(

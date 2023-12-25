@@ -21,6 +21,7 @@ class ProductDetailsFragment: Fragment(R.layout.fragment_product_details) {
     class Screen(
         val productId: Long,
         ): BaseScreen
+
     @Inject
     lateinit var factory: ProduceDetailsViewModel.Factory
     private val viewModel by viewModelCreator { factory.create(args()) }

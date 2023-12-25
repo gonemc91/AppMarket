@@ -5,7 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
     tools:context="com.example.catalog.presentation.catalog.CatalogFragment"
     >
 
@@ -13,41 +12,56 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/primary_two"
         >
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:id="@+id/sortAndFilterButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
             android:background="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="6dp">
+            android:layout_marginTop="-30dp"
+            app:cardCornerRadius="25dp"
+            android:backgroundTint="@color/primary_two"
+            app:cardElevation="10dp"
+            >
 
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/core_theme_ic_filter"
-                app:tint="@color/action" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:text="Sort &amp; filter"
-                android:textColor="@color/action"
-                android:textStyle="bold" />
+                <ImageView
+                    android:id="@+id/labelFilter"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/core_theme_ic_filter"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.75"
+                    app:tint="@color/action" />
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sort &amp; filter"
+                    android:textColor="@color/action"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelFilter"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.75"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/productsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="6dp"
+            android:paddingTop="5dp"
             tools:listitem="@layout/item_product" />
 
     </LinearLayout>
