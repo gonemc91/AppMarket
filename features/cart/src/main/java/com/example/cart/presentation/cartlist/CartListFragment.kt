@@ -15,6 +15,7 @@ import com.example.cart.R
 import com.example.cart.databinding.FragmentCartListBinding
 import com.example.cart.databinding.ItemCartProductBinding
 import com.example.cart.presentation.cartlist.entites.UiCartItem
+import com.example.presentation.Mode
 import com.example.presentation.loadUrl
 import com.example.presentation.viewBinding
 import com.example.presentation.views.observe
@@ -111,7 +112,7 @@ class CartListFragment: Fragment(R.layout.fragment_cart_list) {
 
         bind { cartItem ->
             nameTextView.text = cartItem.name
-            productImageView.loadUrl(cartItem.imageUrl)
+            productImageView.loadUrl(cartItem.imageUrl, Mode.RECTANGLE_CORNER_16F)
             quantityTextView.text = cartItem.quantity.toString()
             decrementImageView.setEnabledAndTint(cartItem.canDecrement)
             incrementImageView.setEnabledAndTint(cartItem.canIncrement)

@@ -30,8 +30,9 @@
                 app:layout_constraintBottom_toTopOf="@id/passwordTextInput">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:minHeight="@dimen/min_height_input_text"
                     android:id="@+id/emailEditText"
-                    android:layout_width="match_parent"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:lines="1"
                     android:inputType="textEmailAddress"
@@ -52,8 +53,9 @@
                 app:layout_constraintBottom_toTopOf="@id/signInButton">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:minHeight="@dimen/min_height_input_text"
                     android:id="@+id/passwordEditText"
-                    android:layout_width="match_parent"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:lines="1"
                     android:inputType="textPassword"
@@ -64,29 +66,27 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/signInButton"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/passwordTextInput"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/signUpButton"
+                app:layout_constraintEnd_toEndOf="@id/signUpButton"
                 app:layout_constraintBottom_toTopOf="@id/signUpButton"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="40dp"
                 android:text="@string/signin_action_sign_in"
-                style="@style/GlobalTextInputStyle.Big"
-                app:cornerRadius="10dp"
                 />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/signUpButton"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/signInButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:text="@string/signin_action_create_account"
-                style="@style/GlobalTextInputStyle.Secondary.Big"
-                app:cornerRadius="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/hint"
                 />
 
             <ProgressBar

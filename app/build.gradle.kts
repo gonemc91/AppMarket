@@ -59,6 +59,7 @@ dependencies {
     implementation(project(Modules.Features.catalog))
     implementation(project(Modules.Features.orders))
     implementation(project(Modules.Features.cart))
+    implementation(project(Modules.Features.profile))
 
 
 }

@@ -1,5 +1,7 @@
 package com.example.navigation.presentation
 
+import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.activity.viewModels
@@ -37,10 +39,12 @@ class MainActivity : AppCompatActivity(), RouterHolder {
     }
 
 
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         if(savedInstanceState != null){
             navComponentRouter.onRestoreInstanceState(savedInstanceState)
         }

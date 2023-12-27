@@ -41,6 +41,7 @@ class CreateOrdersViewModel @Inject constructor(
     fun load() = debounce {
         loadScreenInto(cartFlow){
             getCartUseCase.getCart()
+
         }
     }
 

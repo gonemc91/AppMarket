@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.presentation.views.ResultView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="@dimen/core_theme_big_width"
+                android:id="@+id/editProfileTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/profile_edit_title"
+                style="@style/ListItemTitle"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/usernameInputLayout"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:hint="@string/fragment_edit_profile_username_hint"
+                android:textAlignment="textEnd">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/usernameInputText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:lines="1"
+                    tools:text="admin">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/saveButton"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_profile_save_button"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                android:enabled="true"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancelButon"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_profile_cancel_button"
+                android:layout_marginTop="@dimen/minimal_dimens_stroke"
+                android:backgroundTint="@color/hint"
+                android:layout_gravity="center"
+                android:enabled="true"
+                />
+
+
+            <ProgressBar
+                android:visibility="invisible"
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/core_theme_large_space"
+                />
+
+
+
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+
+
+
+</com.example.presentation.views.ResultView>

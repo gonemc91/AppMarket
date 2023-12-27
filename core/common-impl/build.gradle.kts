@@ -37,4 +37,6 @@ android {
 dependencies {
     api(project(Modules.Core.common))
     implementation(Dependencies.Android.fragmentKtx)
+    implementation(Dependencies.Google.material)
+    implementation(project(Modules.Core.theme))
 }

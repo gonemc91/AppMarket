@@ -32,6 +32,7 @@
             <option value="$PROJECT_DIR$/features/cart" />
             <option value="$PROJECT_DIR$/features/catalog" />
             <option value="$PROJECT_DIR$/features/orders" />
+            <option value="$PROJECT_DIR$/features/profile" />
             <option value="$PROJECT_DIR$/features/sign-in" />
             <option value="$PROJECT_DIR$/features/sign-up" />
             <option value="$PROJECT_DIR$/navigation" />

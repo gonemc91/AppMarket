@@ -31,7 +31,7 @@ class DefaultDestinationProvider @Inject constructor(
                 iconRes = R.drawable.ic_orders,
             ),
             NavTab(
-                destinationId = R.id.signInFragment,
+                destinationId = R.id.profileFragment,
                 title = context.getString(R.string.tab_profile),
                 iconRes = R.drawable.ic_profile,
             )

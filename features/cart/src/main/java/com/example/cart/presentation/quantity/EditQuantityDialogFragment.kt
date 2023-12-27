@@ -29,7 +29,7 @@ class EditQuantityDialogFragment: DialogFragment() {
     private val viewModel by viewModelCreator { factory.create(args()) }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = MaterialAlertDialogBuilder(requireContext())
+        val dialog = MaterialAlertDialogBuilder(requireContext(), com.example.theme.R.style.MaterialAlertDialog)
             .setNegativeButton(R.string.cart_action_cancel,null)
             .setPositiveButton(R.string.cart_action_save, null)
             .setTitle(R.string.cart_edit_quantity)

@@ -63,7 +63,6 @@ class OrdersListFragment @Inject constructor()  : Fragment(R.layout.fragment_ord
     private fun makeCreatedAtText(order: UiOrder): CharSequence{
         val text = getString(R.string.orders_created_at, order.createdAt)
         return HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_COMPACT)
-       // TODO()
     }
 
     private fun makeRecipientText(order: UiOrder): CharSequence {

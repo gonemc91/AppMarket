@@ -15,12 +15,12 @@
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.example.sign_up.presentation.signup.SignUpFragment"
-        android:label="fragment_sign_up"
+        android:label="@string/title_sign_up"
         tools:layout="@layout/fragment_sign_up" />
     <fragment
         android:id="@+id/catalogFragment"
         android:name="com.example.catalog.presentation.catalog.CatalogFragment"
-        android:label="fragment_catalog"
+        android:label="@string/title_catalog"
         tools:layout="@layout/fragment_catalog" />
     <fragment
         android:id="@+id/tabsFragment"
@@ -29,30 +29,47 @@
     <fragment
         android:id="@+id/productDetailsFragment"
         android:name="com.example.catalog.presentation.details.ProductDetailsFragment"
-        android:label="ProductDetailsFragment" />
+        android:label="@string/title_product_details"
+        tools:layout="@layout/fragment_product_details"
+        />
     <fragment
         android:id="@+id/catalogFilterFragment"
         android:name="com.example.catalog.presentation.filter.CatalogFilterFragment"
-        android:label="fragmet_filter"
+        android:label="@string/title_filter"
         tools:layout="@layout/fragmet_filter" />
     <fragment
         android:id="@+id/ordersListFragment"
         android:name="com.example.orders.presentation.orders.OrdersListFragment"
-        android:label="fragment_order_list"
+        android:label="@string/title_order_details"
         tools:layout="@layout/fragment_order_list" />
     <fragment
         android:id="@+id/createOrdersFragment"
         android:name="com.example.orders.presentation.create.CreateOrdersFragment"
-        android:label="CreateOrdersFragment" />
+        android:label="@string/title_create_order"
+        tools:layout="@layout/fragment_create_order"
+        />
     <fragment
         android:id="@+id/cartListFragment"
         android:name="com.example.cart.presentation.cartlist.CartListFragment"
-        android:label="fragment_cart_list"
-        tools:layout="@layout/fragment_cart_list" />
+        android:label="@string/title_cart"
+        tools:layout="@layout/fragment_cart_list"
+        />
     <dialog
         android:id="@+id/editQuantityDialogFragment"
         android:name="com.example.cart.presentation.quantity.EditQuantityDialogFragment"
         android:label="dialog_quantity"
         tools:layout="@layout/dialog_quantity" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.profile.presentation.edit.EditProfileFragment"
+        android:label="@string/title_edit_profile"
+        tools:layout="@layout/fragment_edit_profile"
+        />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.profile.presentation.pofile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile"
+        />
 
 </navigation>

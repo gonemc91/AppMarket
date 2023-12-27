@@ -18,6 +18,7 @@ object Modules {
         const val catalog = ":features:catalog"
         const val orders = ":features:orders"
         const val cart = ":features:cart"
+        const val profile = ":features:profile"
     }
 
     object Data{

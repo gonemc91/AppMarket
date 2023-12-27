@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.example.catalog.R
 import com.example.catalog.databinding.FragmentProductDetailsBinding
 import com.example.presentation.BaseScreen
+import com.example.presentation.Mode
 import com.example.presentation.args
 import com.example.presentation.loadUrl
 import com.example.presentation.viewBinding
@@ -39,7 +40,7 @@ class ProductDetailsFragment: Fragment(R.layout.fragment_product_details) {
     private fun FragmentProductDetailsBinding.observeState(){
         root.observe(viewLifecycleOwner, viewModel.stateLiveValue){ state ->
             val product = state.product
-            productImageView.loadUrl(product.photo)
+            productImageView.loadUrl(product.photo, Mode.CIRCLE_CROP)
             productTitleTextView.text = product.name
             detailsTextView.text = product.details
             addToCartButton.isEnabled = state.enableAddToCartButton

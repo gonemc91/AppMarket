@@ -12,6 +12,7 @@ import com.example.catalog.R
 import com.example.catalog.databinding.FragmentCatalogBinding
 import com.example.catalog.databinding.ItemProductBinding
 import com.example.catalog.domain.entites.ProductWithCartInfo
+import com.example.presentation.Mode
 import com.example.presentation.loadResources
 import com.example.presentation.loadUrl
 import com.example.presentation.viewBinding
@@ -87,7 +88,7 @@ class CatalogFragment : Fragment(R.layout.fragment_catalog){
             )
 
             if (product.photo.isNotBlank()){
-                productImageView.loadUrl(product.photo)
+                productImageView.loadUrl(product.photo, Mode.RECTANGLE_CORNER_16F)
             }else{
                 productImageView.loadResources(com.example.theme.R.drawable.core_theme_placeholder)
             }
