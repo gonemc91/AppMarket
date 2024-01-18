@@ -19,8 +19,10 @@ class MainViewModel @Inject constructor(
 
     val usernameLiveValue = liveValue<String?>()
     val cartLiveValue = liveValue<CartState>()
+    internal var isReady: Boolean = false
 
     init {
+        isReady = true
         observeUsername()
         observeCart()
     }

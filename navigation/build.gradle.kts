@@ -45,9 +45,11 @@ dependencies {
     implementation(Dependencies.Android.navigationUI)
 
     implementation(Dependencies.Google.material)
+    implementation(Dependencies.Google.splashScreen)
 
     implementation(Dependencies.Google.hilt)
     kapt(Dependencies.Google.hiltCompiler)
+
 
     implementation(project(Modules.Core.presentation))
     implementation(project(Modules.Core.commonImpl))

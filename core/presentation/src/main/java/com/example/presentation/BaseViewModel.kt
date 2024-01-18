@@ -34,6 +34,7 @@ import kotlinx.coroutines.launch
 @OptIn(FlowPreview::class)
 open class BaseViewModel: ViewModel() {
 
+
     /**
      * View model with pre-assigned error handler.
      * Error handler is taken from [Core.errorHandler].

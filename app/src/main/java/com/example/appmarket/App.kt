@@ -13,6 +13,9 @@ class App: Application() {
     @Inject
     lateinit var coreProvider: CoreProvider
 
+
+
+
     override fun onCreate() {
         super.onCreate()
         Core.init(coreProvider)

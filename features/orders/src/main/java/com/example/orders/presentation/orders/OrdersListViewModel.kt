@@ -32,6 +32,7 @@ class OrdersListViewModel @Inject constructor(
         getOrdersUseCase.reload()
     }
 
+
     fun cancelOrder(order: UiOrder) = debounce {
         viewModelScope.launch {
             val cancellationIds = cancellationUuidsFlow.value.value
@@ -50,7 +51,7 @@ class OrdersListViewModel @Inject constructor(
 
     private fun merge(
         ordersContainer: Container<List<Order>>,
-        cancellations: OnChange<MutableSet<String>>
+        cancellations: OnChange<MutableSet<String>>,
     ): Container<State> {
         return ordersContainer.map { list ->
             State(
@@ -66,7 +67,7 @@ class OrdersListViewModel @Inject constructor(
     }
 
     class State(
-        val orders: List<UiOrder>
+        val orders: List<UiOrder>,
     )
 
 }

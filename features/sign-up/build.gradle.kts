@@ -46,10 +46,13 @@ dependencies {
     implementation(Dependencies.Android.fragmentKtx)
     implementation(Dependencies.Android.lifecycleViewModelKtx)
 
-    implementation(Dependencies.Google.material)
 
     implementation(Dependencies.Google.hilt)
+    implementation(Dependencies.Google.material)
+
     kapt(Dependencies.Google.hiltCompiler)
+
+
 
     implementation(project(Modules.Core.presentation))
     implementation(project(Modules.Core.common))

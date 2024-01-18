@@ -42,6 +42,9 @@ class CartListFragment: Fragment(R.layout.fragment_cart_list) {
 
         }
         viewModel.initBackListener(viewLifecycleOwner.lifecycleScope)
+        
+
+
     }
 
 

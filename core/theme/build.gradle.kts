@@ -37,5 +37,8 @@ dependencies {
     implementation(Dependencies.Android.appCompat)
 
     implementation(Dependencies.Google.material)
+    implementation(Dependencies.Google.material)
+    implementation(Dependencies.Google.splashScreen)
+
 
 }

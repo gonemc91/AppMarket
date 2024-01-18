@@ -41,7 +41,8 @@ dependencies {
     implementation(Dependencies.Android.appCompat)
     implementation(Dependencies.Android.lifecycleRuntimeKtx)
     implementation(Dependencies.Android.fragmentKtx)
-    implementation(Dependencies.Google.material)
+    implementation(Dependencies.Android.recyclerView)
+
     implementation(Dependencies.Stuff.coil)
 
     implementation(project(Modules.Core.common))

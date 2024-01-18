@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Theme.MultiModuleCore" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.MultiModuleCore" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary_one</item>
         <item name="colorPrimaryVariant">@color/primary_two</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -12,6 +12,9 @@
         <item name="textInputStyle">@style/GlobalTextInputStyle</item>
         <item name="materialButtonStyle">@style/GlobalButtonStyle</item>
 
+        <item name="android:windowSplashScreenBackground" >@color/transparent_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/news_avd_v02</item>
+
     </style>
 
 
@@ -20,8 +23,6 @@
         <item name="buttonBarNegativeButtonStyle">@style/GlobalButtonStyle</item>
         <item name="cornerRadius">10dp</item>
     </style>
-
-
 
 
 

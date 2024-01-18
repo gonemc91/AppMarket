@@ -26,7 +26,7 @@ class RealProductDataRepository @Inject constructor(
     }
 @ExperimentalCoroutinesApi
     override fun getProducts(filter: ProductDataFilter): Flow<Container<List<ProductDataEntity>>> {
-        return updateNotifierFlow.flatMapLatest {
+        return updateNotifierFlow.flatMapLatest{
             lazyFlowSubjectFactory.create {
                 delay(1000)
                 productsDataSource.getProducts(filter)

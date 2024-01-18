@@ -4,6 +4,8 @@
     <color name="primary_one">@android:color/system_accent2_600</color>
     <color name="primary_two">@android:color/system_accent2_700</color>
 
+    <color name="transparent_background">@android:color/transparent</color>
+
 
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

@@ -41,10 +41,8 @@ android {
 dependencies {
     implementation(Dependencies.Android.appCompat)
     implementation(Dependencies.Android.coreKtx)
-    implementation(Dependencies.Android.constraintLayout)
     implementation(Dependencies.Android.navigationFragments)
 
-    implementation(Dependencies.Google.material)
 
     implementation(Dependencies.Google.hilt)
     kapt(Dependencies.Google.hiltCompiler)

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.elveum.elementadapter.ElementListAdapter
 import com.elveum.elementadapter.simpleAdapter
 import com.example.orders.R
+import com.example.orders.R.string.orders_recipient
 import com.example.orders.databinding.FragmentOrderListBinding
 import com.example.orders.databinding.ItemOrderBinding
 import com.example.orders.databinding.ItemOrderProductBinding
@@ -66,7 +67,7 @@ class OrdersListFragment @Inject constructor()  : Fragment(R.layout.fragment_ord
     }
 
     private fun makeRecipientText(order: UiOrder): CharSequence {
-        val text = getString(R.string.orders_recipient, order.recipient)
+        val text = getString(orders_recipient, order.recipient)
         return HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_COMPACT)
     }
 
