@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class SortOrderMapper @Inject constructor(){
 
-    fun toSortOrderDataValue(sortOrder: SortOrder): SortOrderDataValue{
+    fun toSortOrderDataValue(sortOrder: SortOrder): SortOrderDataValue {
         return when (sortOrder){
             SortOrder.DESC -> SortOrderDataValue.DESC
             SortOrder.ASC -> SortOrderDataValue.ASC

@@ -25,15 +25,18 @@ class AdapterOrdersRepository @Inject constructor(
 ) : OrdersRepository {
 
     override suspend fun makeOrder(cart: Cart, recipient: Recipient) {
-        ordersDataRepository.createOrder(CreateOrderDataEntity(
-            recipientDataEntity = recipientMapper.toRecipientDataEntity(recipient),
-            items = cart.cartItems.map {
-                CreateOrderItemDataEntity(
-                    productId = it.productId,
-                    quantity = it.quantity,
-                    priceUsdCents = (it.price as OrderUsdPrice).usdCents)
-            }
-        ))
+        ordersDataRepository.run {
+            createOrder(CreateOrderDataEntity(
+                recipientDataEntity = recipientMapper.toRecipientDataEntity(recipient),
+                items = cart.cartItems.map {
+                    CreateOrderItemDataEntity(
+                        productId = it.productId,
+                        quantity = it.quantity,
+                        priceUsdCents = (it.price as OrderUsdPrice).usdCents
+                    )
+                }
+            ))
+        }
     }
 
     override suspend fun changeStatus(orderUuid: String, status: OrderStatus) {

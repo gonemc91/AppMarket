@@ -48,3 +48,5 @@ class UserFriendlyException(
  * Something doesn't exist
  */
 class NotFoundException: AppException()
+
+

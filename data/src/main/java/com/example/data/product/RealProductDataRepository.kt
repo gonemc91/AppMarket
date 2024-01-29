@@ -26,9 +26,10 @@ class RealProductDataRepository @Inject constructor(
     }
 @ExperimentalCoroutinesApi
     override fun getProducts(filter: ProductDataFilter): Flow<Container<List<ProductDataEntity>>> {
+
         return updateNotifierFlow.flatMapLatest{
+            delay(1000)
             lazyFlowSubjectFactory.create {
-                delay(1000)
                 productsDataSource.getProducts(filter)
             }.listen()
         }
@@ -43,16 +44,16 @@ class RealProductDataRepository @Inject constructor(
 
     override suspend fun getMinPriceUsdCents(): Int {
         return productsDataSource.getProducts(ProductDataFilter.DEFAULT)
-            .minOf { getDiscountPriceUsdCentForEntity(it) ?: it.priceUsdCents }
+           .minOf { getDiscountPriceUsdCentForEntity(it) ?: it.priceUsdCents }
     }
 
     override suspend fun getMaxPriceUsdCents(): Int {
-        return productsDataSource.getProducts(ProductDataFilter.DEFAULT)
+        return  productsDataSource.getProducts(ProductDataFilter.DEFAULT)
             .maxOf { getDiscountPriceUsdCentForEntity(it) ?: it.priceUsdCents }
     }
 
     override suspend fun getDiscountPriceUsdCentForEntity(product: ProductDataEntity): Int? {
-        return productsDataSource.getDiscountPriceUsdCentsForEntity(product)
+       return  productsDataSource.getDiscountPriceUsdCentsForEntity(product)
     }
 
     override suspend fun getAllCategories(): List<String> {

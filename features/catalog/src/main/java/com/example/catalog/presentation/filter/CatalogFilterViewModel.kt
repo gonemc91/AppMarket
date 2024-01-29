@@ -54,6 +54,7 @@ class CatalogFilterViewModel @AssistedInject constructor(
     }
 
     fun load() = debounce {
+
         stateLiveValue.value = Container.Pending
         filter = filter
     }
@@ -76,7 +77,7 @@ class CatalogFilterViewModel @AssistedInject constructor(
                 maxPossiblePrice = maxPossiblePrice,
                 minPrice = currentFilter.minPrice ?: minPossiblePrice,
                 maxPrice = currentFilter.maxPrice ?: maxPossiblePrice,
-                listener = {item, min, max ->
+                listener = { item, min, max ->
                     item.minPrice = min
                     item.maxPrice = max
                     retainItem = item
@@ -137,9 +138,7 @@ class CatalogFilterViewModel @AssistedInject constructor(
          if (index != -1) {
             list[index] = retainItem!!
         }
-
         return list
-
     }
 
 

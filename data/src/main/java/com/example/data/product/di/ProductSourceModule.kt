@@ -23,8 +23,10 @@ interface ProductSourceModule {
 
     @Binds
     @Singleton
-    fun bindDiscountSource(
-       discountDataSource: InMemoryDiscountDataSource
+    fun bindDiscountDataSource(
+        discountDataSource: InMemoryDiscountDataSource
     ): DiscountDataSource
+
+
 
 }

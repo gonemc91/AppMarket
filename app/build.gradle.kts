@@ -18,8 +18,16 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += mapOf(
+                    "room.schemaLocation" to "$projectDir/schemas",
+                    "room.incremental" to "true"
+                )
+            }
+        }
+}
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -27,12 +35,14 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -42,6 +52,10 @@ dependencies {
     implementation(Dependencies.Android.appCompat)
     implementation(Dependencies.Android.coreKtx)
     implementation(Dependencies.Android.navigationFragments)
+
+    implementation(Dependencies.Android.room_runtime)
+    implementation(Dependencies.Android.room_ktx)
+    kapt(Dependencies.Android.room_compiler)
 
 
     implementation(Dependencies.Google.hilt)

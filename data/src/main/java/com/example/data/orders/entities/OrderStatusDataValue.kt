@@ -5,5 +5,5 @@ enum class OrderStatusDataValue {
     ACCEPTED,
     DELIVERING,
     DONE,
-    CANCELLED,
+    CANCELLED
 }

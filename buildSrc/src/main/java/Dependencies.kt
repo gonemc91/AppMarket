@@ -3,6 +3,7 @@ object Dependencies {
     const val hiltVersion = "2.49"
     const val navVersion = "2.7.6"
     const val lifecycle = "2.7.0"
+    const val room_version = "2.6.1"
 
     object Android {
 
@@ -15,6 +16,13 @@ object Dependencies {
         const val recyclerView = "androidx.recyclerview:recyclerview:1.2.1"
         const val navigationFragments = "androidx.navigation:navigation-fragment-ktx:$navVersion"
         const val navigationUI = "androidx.navigation:navigation-ui-ktx:$navVersion"
+
+
+        const val room_compiler = "androidx.room:room-compiler:$room_version"
+        const val room_ktx = "androidx.room:room-ktx:$room_version"
+        const val room_runtime = "androidx.room:room-runtime:$room_version"
+
+
     }
 
     object Google{
@@ -31,6 +39,8 @@ object Dependencies {
     object Testing{
         const val jUnit = "junit:junit:4.13.2"
     }
+
+
 
     object Stuff{
         const val ElementAdapter = "com.elveum:element-adapter:0.6"

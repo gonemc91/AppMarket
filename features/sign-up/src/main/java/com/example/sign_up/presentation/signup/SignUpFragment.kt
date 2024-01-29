@@ -39,6 +39,7 @@ class SignUpFragment: Fragment(R.layout.fragment_sign_up) {
             setupListeners()
         }
     }
+
     private fun observeEvents(savedInstanceState: Bundle?){
         if (savedInstanceState == null){
             viewModel.initialEmailLiveEventValue.observeEvent(viewLifecycleOwner){

@@ -5,15 +5,15 @@ import com.example.appmarket.glue.cart.entities.CartUsdPrice
 import com.example.cart.domain.enttites.CartItem
 import com.example.cart.domain.enttites.Product
 import com.example.data.ProductsDataRepository
-import com.example.data.cart.entities.CartItemDataEntity
 import javax.inject.Inject
+import com.example.data.cart.entities.CartItemDataEntity as CartItemDataEntity1
 
 class CartItemMapper @Inject constructor(
     private val productsDataRepository: ProductsDataRepository,
     private val priceFormatter: PriceFormatter,
 ) {
 
-    suspend fun toCartItem(dataEntity: CartItemDataEntity): CartItem{
+    suspend fun toCartItem(dataEntity: CartItemDataEntity1): CartItem{
         val productDataEntity = productsDataRepository.getProductById(dataEntity.id)
         val productPriceWithDiscount = productsDataRepository.getDiscountPriceUsdCentForEntity(productDataEntity)
         val product = Product(

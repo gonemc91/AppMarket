@@ -1,5 +1,6 @@
 package com.example.appmarket.glue.signin.repositories
 
+import android.util.Log
 import com.example.common.AuthException
 import com.example.common.unwrapFirst
 import com.example.data.AccountsDataRepository
@@ -12,7 +13,9 @@ class AdapterProfileRepository @Inject constructor(
 
     override suspend fun canLoadProfile(): Boolean {
         return try {
-            accountDataRepository.getAccount().unwrapFirst()
+           val ac = accountDataRepository.getAccount().unwrapFirst()
+
+            Log.d("DataAC", ac.toString())
             return true
         }catch (ignored: AuthException){
             false

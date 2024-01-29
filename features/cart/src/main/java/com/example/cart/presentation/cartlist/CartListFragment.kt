@@ -26,7 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class CartListFragment: Fragment(R.layout.fragment_cart_list) {
 
-    private val viewModel by viewModels<CartListViewModel> ()
+    private val viewModel by viewModels<CartListViewModel>()
 
     private val binding by viewBinding<FragmentCartListBinding>()
 
@@ -108,7 +108,7 @@ class CartListFragment: Fragment(R.layout.fragment_cart_list) {
     @SuppressLint("UseCompatLoadingForDrawables")
     fun createCartAdapter(
         listener: CartAdapterListener
-    )= simpleAdapter<UiCartItem, ItemCartProductBinding> {
+    ) = simpleAdapter<UiCartItem, ItemCartProductBinding> {
 
         areItemsSame = {oldItem, newItem -> oldItem.id == newItem.id }
         areContentsSame = {oldItem, newItem -> oldItem == newItem}

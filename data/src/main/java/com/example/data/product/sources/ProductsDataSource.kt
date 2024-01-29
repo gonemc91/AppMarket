@@ -10,8 +10,10 @@ interface ProductsDataSource {
     suspend fun getProductById(id: Long): ProductDataEntity
 
     suspend fun getAllCategories(): List<String>
-
     suspend fun getDiscountPriceUsdCentsForEntity(product: ProductDataEntity): Int?
 
     suspend fun changeQuantityBy(id: Long, quantityBt: Int)
+
+
+
 }

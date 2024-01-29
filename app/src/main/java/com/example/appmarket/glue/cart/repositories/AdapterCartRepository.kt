@@ -4,7 +4,7 @@ import com.example.appmarket.glue.cart.mapper.CartItemMapper
 import com.example.cart.domain.enttites.CartItem
 import com.example.cart.domain.repositories.CartRepository
 import com.example.common.Container
-
+import com.example.common.Core
 import com.example.data.CartDataRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -30,6 +30,9 @@ class AdapterCartRepository @Inject constructor(
     override fun getCartItems(): Flow<Container<List<CartItem>>> {
         return cartDataRepository.getCart().map { container->
             container.suspendMap {list ->
+                list.forEach{
+                    Core.logger.log("Id product ${it.productId}")
+                }
                 list.map { cartItemMapper.toCartItem(it) }
             }
         }

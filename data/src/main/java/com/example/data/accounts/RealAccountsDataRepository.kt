@@ -30,7 +30,7 @@ class RealAccountsDataRepository @Inject constructor(
                 if(it != null){
                     accountLazyFlowSubject.newAsyncLoad(silently = true)
                 }else{
-                    accountLazyFlowSubject.updatedWith(Container.Error(AuthException()))
+                    accountLazyFlowSubject.updateWith(Container.Error(AuthException()))
                 }
             }
         }
@@ -43,7 +43,7 @@ class RealAccountsDataRepository @Inject constructor(
 
     override suspend fun setAccountUsername(username: String) {
         val newAccount = accountsDataSource.setAccountUsername(username)
-        accountLazyFlowSubject.updatedWith(Container.Success(newAccount))
+        accountLazyFlowSubject.updateWith(Container.Success(newAccount))
     }
 
     override suspend fun signIn(email: String, password: String): String {

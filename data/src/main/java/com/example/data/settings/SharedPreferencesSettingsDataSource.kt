@@ -1,8 +1,10 @@
 package com.example.data.settings
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
+import android.util.Log
 import androidx.core.content.edit
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
@@ -19,21 +21,28 @@ class SharedPreferencesSettingsDataSource @Inject constructor(
     private val  tokenFlow = MutableStateFlow<String?>(null)
 
     init {
+        tokenFlow.value = getToken()
         preference.registerOnSharedPreferenceChangeListener(this)
     }
 
 
+
+    @SuppressLint("SuspiciousIndentation")
     override fun setToken(token: String?) {
+        Log.d("myToken", "set token: $token")
         preference.edit {
             if (token == null) {
                 remove(PREF_TOKEN)
             } else
+                Log.d("myToken", "put token: $token")
                 putString(PREF_TOKEN, token)
         }
     }
 
     override fun getToken(): String? {
-        return preference.getString(PREF_TOKEN, null)
+        val token = preference.getString(PREF_TOKEN, null)
+        Log.d("myToken", "get token: $token")
+        return token
     }
 
     override fun listenToken(): Flow<String?> {

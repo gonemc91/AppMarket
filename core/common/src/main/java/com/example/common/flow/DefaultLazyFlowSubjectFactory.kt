@@ -7,9 +7,11 @@ import kotlinx.coroutines.CoroutineScope
 class DefaultLazyFlowSubjectFactory(
     private val dispatcher: CoroutineDispatcher,
     private val globalScope: CoroutineScope = Core.globalScope,
-    private val cacheTimeoutMills: Long = 1000
-): LazyFlowSubjectFactory {
+    private val cacheTimeoutMillis: Long = 1000L
+) : LazyFlowSubjectFactory {
+
     override fun <T> create(loader: ValueLoader<T>): LazyFlowSubject<T> {
-        return DefaultLazyFlowSubject(loader,dispatcher, globalScope, cacheTimeoutMills)
+        return DefaultLazyFlowSubject(loader, dispatcher, globalScope, cacheTimeoutMillis)
     }
+
 }

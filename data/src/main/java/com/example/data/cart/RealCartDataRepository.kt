@@ -1,6 +1,7 @@
 package com.example.data.cart
 
 import com.example.common.Container
+import com.example.common.Core
 import com.example.common.NotFoundException
 import com.example.common.flow.LazyFlowSubjectFactory
 import com.example.data.CartDataRepository
@@ -24,17 +25,20 @@ class RealCartDataRepository @Inject constructor (
             settingDataSource.listenToken().collect {
                 if (it == null){
                     cartDataSource.clearCart()
-                    cartSubject.updatedWith(Container.Success(emptyList()))
+                    cartSubject.updateWith(Container.Success(emptyList()))
                 }
             }
         }
     }
 
     private val cartSubject = lazyFlowSubjectFactory.create {
+        Core.logger.log("getCart in real Repository")
         cartDataSource.getCart()
     }
 
     override fun getCart(): Flow<Container<List<CartItemDataEntity>>> {
+        Core.logger.log("getCart in real Repository and listen cartSubject")
+        cartSubject.newAsyncLoad(silently = true)
         return cartSubject.listen()
     }
 
@@ -50,11 +54,12 @@ class RealCartDataRepository @Inject constructor (
     override suspend fun deleteCartItem(ids: List<Long>) {
         ids.forEach{ cartDataSource.delete(it) }
         cartSubject.newAsyncLoad(silently = true)
-
     }
 
     override suspend fun deleteAll() {
+        Core.logger.log("deleteAll")
         cartDataSource.deleteAll()
+        cartSubject.newAsyncLoad(silently = true)
     }
 
     override suspend fun changeQuantity(cartId: Long, quantity: Int) {
@@ -70,6 +75,6 @@ class RealCartDataRepository @Inject constructor (
 
 
     private suspend fun notifyChanges(){
-        cartSubject.updatedWith(Container.Success(cartDataSource.getCart()))
+        cartSubject.updateWith(Container.Success(cartDataSource.getCart()))
     }
 }

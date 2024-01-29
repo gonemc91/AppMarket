@@ -17,6 +17,8 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+
     }
 
     buildTypes {
@@ -40,6 +42,10 @@ android {
  dependencies {
      implementation(Dependencies.Android.coreKtx)
      implementation(Dependencies.Stuff.faker)
+
+     implementation(Dependencies.Android.room_runtime)
+     implementation(Dependencies.Android.room_ktx)
+     kapt(Dependencies.Android.room_compiler)
 
      implementation(Dependencies.Google.hilt)
      kapt(Dependencies.Google.hiltCompiler)

@@ -1,5 +1,6 @@
 package com.example.sign_in
 
+import android.util.Log
 import com.example.sign_in.domain.exception.EmptyEmailException
 import com.example.sign_in.domain.exception.EmptyPasswordException
 import com.example.sign_in.domain.repositories.AuthServiceRepository
@@ -22,7 +23,7 @@ class SignInUseCase  @Inject constructor(
         if (password.isBlank()) throw EmptyPasswordException()
 
         val token = authServiceRepository.signIn(email, password)
-
+        Log.d("myToken", "use case: $token")
         authTokenRepository.setToken(token)
     }
 }

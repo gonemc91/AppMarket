@@ -5,6 +5,7 @@ import com.example.data.accounts.entities.AccountDataEntity
 import com.example.data.accounts.entities.SignUpDataEntity
 import kotlinx.coroutines.flow.Flow
 
+
 interface AccountsDataRepository {
 
 
@@ -27,10 +28,10 @@ interface AccountsDataRepository {
 
     /**
      * Create a new account.
-     * @throws AccountAlreadyExistsDataException
+     * @throws [AccountAlreadyExistsDataException]
      */
 
-    suspend fun signUp(singUpDat: SignUpDataEntity)
+    suspend fun signUp(singUpData: SignUpDataEntity)
 
     /**
      * Reload the flow returned by [getAccount]

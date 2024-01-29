@@ -20,10 +20,10 @@ class SignUpUseCase @Inject constructor(
      */
 
     suspend fun signUp(signUpData: SignUpData){
-        if (signUpData.email.isNotBlank()) throw EmptyFieldException(SignUpField.EMAIL)
-        if (signUpData.username.isNotBlank()) throw EmptyFieldException(SignUpField.USERNAME)
-        if (signUpData.password.isNotBlank()) throw  EmptyFieldException(SignUpField.PASSWORD)
-        if (signUpData.password.isNotBlank()) throw  EmptyFieldException(SignUpField.REPEAT_PASSWORD)
+        if (signUpData.email.isBlank()) throw EmptyFieldException(SignUpField.EMAIL)
+        if (signUpData.username.isBlank()) throw EmptyFieldException(SignUpField.USERNAME)
+        if (signUpData.password.isBlank()) throw  EmptyFieldException(SignUpField.PASSWORD)
+        if (signUpData.password.isBlank()) throw  EmptyFieldException(SignUpField.REPEAT_PASSWORD)
 
         signUpRepository.signUp(signUpData)
     }
