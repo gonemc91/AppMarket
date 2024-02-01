@@ -35,7 +35,6 @@
             <option value="$PROJECT_DIR$/features/profile" />
             <option value="$PROJECT_DIR$/features/sign-in" />
             <option value="$PROJECT_DIR$/features/sign-up" />
-            <option value="$PROJECT_DIR$/mydata" />
             <option value="$PROJECT_DIR$/navigation" />
           </set>
         </option>

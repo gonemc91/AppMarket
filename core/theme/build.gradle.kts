@@ -38,7 +38,6 @@ dependencies {
 
     implementation(Dependencies.Google.material)
     implementation(Dependencies.Google.material)
-    implementation(Dependencies.Google.splashScreen)
 
 
 }

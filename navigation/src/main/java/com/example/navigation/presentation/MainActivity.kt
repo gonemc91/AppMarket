@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.view.View
-import android.view.ViewTreeObserver
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -46,22 +44,7 @@ class MainActivity : AppCompatActivity(), RouterHolder {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val content: View = findViewById(android.R.id.content)
-        content.viewTreeObserver.addOnPreDrawListener(
-            object : ViewTreeObserver.OnPreDrawListener {
-                override fun onPreDraw(): Boolean {
-                    // Check whether the initial data is ready.
-                    return if (viewModel.isReady) {
-                        // The content is ready. Start drawing.
-                        content.viewTreeObserver.removeOnPreDrawListener(this)
-                        true
-                    } else {
-                        // The content isn't ready. Suspend.
-                        false
-                    }
-                }
-            }
-        )
+      
 
         setSupportActionBar(binding.toolbar)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT

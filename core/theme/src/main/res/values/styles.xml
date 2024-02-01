@@ -12,8 +12,6 @@
         <item name="textInputStyle">@style/GlobalTextInputStyle</item>
         <item name="materialButtonStyle">@style/GlobalButtonStyle</item>
 
-        <item name="android:windowSplashScreenBackground" >@color/transparent_background</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/news_avd_v02</item>
 
     </style>
 

@@ -19,6 +19,7 @@ class CancelOrderUseCase @Inject constructor(
         if(!canCancel(order)){
             throw InvalidOrderStatusException()
         }
+
         ordersRepository.changeStatus(order.uuid, OrderStatus.CANCELLED)
     }
 

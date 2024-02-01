@@ -12,6 +12,7 @@ import com.example.presentation.BaseViewModel
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
@@ -53,6 +54,7 @@ class EditQuantityViewModel @AssistedInject constructor(
             try {
                 validateCartItemQuantityUseCase.validateNewQuantity(carItem, parseQuantity)
                 router.sendsQuantity(EditQuantityResult(carItem.id, parseQuantity))
+                delay(1000)
                 router.goBack()
             }catch (e: QuantityOutOfRangeException){
                 commonUi.toast(resources.getString(R.string.cart_quantity_out_of_range))

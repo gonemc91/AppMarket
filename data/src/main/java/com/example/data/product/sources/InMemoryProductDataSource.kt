@@ -23,17 +23,17 @@ class InMemoryProductDataSource @Inject constructor (
 ): ProductsDataSource {
 
 
-    private var products: MutableList<ProductDataEntity>? = null
+    private val products = emptyList<ProductDataEntity>().toMutableList()
     init {
         coroutineScope.launch {
             val hasTable = productsDao.hasTable()
             if (!hasTable) {
-                products = generateRandomProducts()
-                sendToDB(products!!)
+                generateRandomProducts().map {products.add(it)}
+                sendToDB(products)
             }else{
-                products = productsDao.getAllData().map{
-                    it.toProductsDataEntity()
-                }.toMutableList()
+                productsDao.getAllData().map{
+                    products.add(it.toProductsDataEntity())
+                }
             }
         }
     }
@@ -46,7 +46,7 @@ class InMemoryProductDataSource @Inject constructor (
 
 
     override suspend fun getProducts(filter: ProductDataFilter): List<ProductDataEntity> {
-        val filterList = products!!.filter { filterProduct(it, filter) }
+        val filterList = products.filter { filterProduct(it, filter) }
         val sortedList = when(filter.sortBy){
             SortByDataValue.NAME -> filterList.sortedBy { it.name }
             SortByDataValue.PRICE -> filterList.sortedBy {
@@ -63,33 +63,32 @@ class InMemoryProductDataSource @Inject constructor (
     }
 
     override suspend fun getProductById(id: Long): ProductDataEntity {
-        return products!!.firstOrNull { it.id == id } ?: throw NotFoundException()
+        return products.firstOrNull { it.id == id } ?: throw NotFoundException()
     }
 
     override suspend fun getAllCategories(): List<String> {
-        return products!!.map { it.category }.distinct()
+        return products.map { it.category }.distinct()
     }
 
     override suspend fun getDiscountPriceUsdCentsForEntity(product: ProductDataEntity): Int? {
-        val priceCentsWithDiscount = discountDataSource.getDiscountPercentage(product.id) ?: return null
-        return priceCentsWithDiscount
+        return discountDataSource.getDiscountPercentage(product.id) ?: return null
     }
 
 
 
 
     override suspend fun changeQuantityBy(id: Long, quantityBt: Int) {
-        val index = products!!.indexOfFirst { it.id == id }
+        val index = products.indexOfFirst { it.id == id }
         if (index == -1) throw NotFoundException()
-        val oldProduct = products!![index]
+        val oldProduct = products[index]
         val newQuantity = oldProduct.quantityAvailable + quantityBt
         if (newQuantity > 0){
-            products!![index] = oldProduct.copy(
+            products[index] = oldProduct.copy(
                 quantityAvailable = newQuantity
             )
             productsDao.updateQuantity(ProductUpdateQuantityTuple(id, quantityBt))
         }else{
-            products!!.removeAt(index)
+            products.removeAt(index)
             productsDao.deleteProductByID(ProductUpdateQuantityTuple(id, quantityBt))
         }
     }

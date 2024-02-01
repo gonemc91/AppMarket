@@ -17,6 +17,18 @@ class InMemoryDiscountDataSource @Inject constructor(
 
     init {
         coroutineScope.launch {
+            generateRandomDiscount(productsDao, discounts)
+        }
+    }
+
+    override suspend fun getDiscountPercentage(productId: Long): Int? {
+        return discounts.firstOrNull { it.productID == productId }?.discountPriceUsdCents
+    }
+
+
+    companion object {
+        suspend fun generateRandomDiscount(productsDao: ProductsDao, discounts: MutableList<DiscountDataEntity>){
+
             val discountsProductsForInit = productsDao.getAllDiscountsProducts()
 
             for (i in 1..50 step 3){
@@ -25,7 +37,9 @@ class InMemoryDiscountDataSource @Inject constructor(
                 val discountProportion = 1 - discountPercentage / 100.0
                 val priceCentsWithDiscount = (discountProportion * initProduct.priceUsdCents).toInt()
                 discounts.add(DiscountDataEntity(i.toLong(), discountPercentage, priceCentsWithDiscount))
+
                 sendDiscountPriceUsdCentsDataToDB(
+                    productsDao,
                     productId = i.toLong(),
                     priceUsdCents = initProduct.priceUsdCents,
                     percentage = discountPercentage,
@@ -33,26 +47,27 @@ class InMemoryDiscountDataSource @Inject constructor(
                 )
             }
         }
-    }
 
-    override suspend fun getDiscountPercentage(productId: Long): Int? {
-        return discounts.firstOrNull { it.productID == productId }?.discountPriceUsdCents
-    }
-
-    private suspend fun sendDiscountPriceUsdCentsDataToDB(
-        productId: Long,
-        priceUsdCents: Int,
-        percentage: Int,
-        priceUsdCentsWithDiscount: Int,
-    ) {
-        productsDao.initDiscount(
-            ProductDiscountTuple(
-                productId = productId,
-                priceUsdCents = priceUsdCents,
-                discountPercentage = percentage,
-                priceUsdCentsWithDiscount = priceUsdCentsWithDiscount,
+        private suspend fun sendDiscountPriceUsdCentsDataToDB(
+            productsDao: ProductsDao,
+            productId: Long,
+            priceUsdCents: Int,
+            percentage: Int,
+            priceUsdCentsWithDiscount: Int,
+        ) {
+            productsDao.initDiscount(
+                ProductDiscountTuple(
+                    productId = productId,
+                    priceUsdCents = priceUsdCents,
+                    discountPercentage = percentage,
+                    priceUsdCentsWithDiscount = priceUsdCentsWithDiscount,
+                )
             )
-        )
+        }
+
+
+
+
     }
 
 

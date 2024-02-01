@@ -31,9 +31,6 @@ class InMemoryCartDataSources @Inject constructor(
     }
 
     override suspend fun getCart(): List<CartItemDataEntity> {
-        cart.forEach {
-            Core.logger.log("get cart ${it.productId}")}
-
         return ArrayList(cart)
     }
 
@@ -62,6 +59,5 @@ class InMemoryCartDataSources @Inject constructor(
     override suspend fun deleteAll() {
         cart.clear()
         cartDao.deleteAll()
-        Core.logger.log("deleteAll in Memory ${cart.forEach {it.productId}}")
     }
 }

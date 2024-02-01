@@ -24,7 +24,7 @@ class AdapterCartRouter @Inject constructor(
     }
 
     override fun goBack() {
-        globalNavComponentRouter.pop()
+     globalNavComponentRouter.pop()
     }
 
     override fun launchEditQuantity(cartItemId: Long, initialQty: Int) {

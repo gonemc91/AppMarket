@@ -25,20 +25,20 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="5dp"
+        android:background="?android:selectableItemBackground"
         >
 
-    <ImageView
-        android:id="@+id/productImageView"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:background="#ababab"
-        />
+        <ImageView
+            android:id="@+id/productImageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="5dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="#ababab" />
 
     <TextView
         android:id="@+id/nameTextView"

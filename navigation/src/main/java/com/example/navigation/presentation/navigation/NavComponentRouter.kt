@@ -78,7 +78,8 @@ class NavComponentRouter @AssistedInject constructor(
         return true
     }
     fun pop(){
-        activity.onBackPressedDispatcher.onBackPressed()
+
+      activity.onBackPressedDispatcher.onBackPressed()
     }
 
 
