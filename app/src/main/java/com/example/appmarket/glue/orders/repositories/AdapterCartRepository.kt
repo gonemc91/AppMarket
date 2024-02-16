@@ -23,8 +23,9 @@ CartRepository{
         return Cart(
             cartItems = cartItems.map {
                 val product = productDataRepository.getProductById(it.productId)
-                val priceWithDiscount = productDataRepository.getDiscountPriceUsdCentForEntity(product)
+                var priceWithDiscount = productDataRepository.getDiscountPriceUsdCentForEntity(product)
                     ?: product.priceUsdCents
+                priceWithDiscount *= it.quantity
                 CartItem(
                     name = product.name,
                     productId = it.productId,
